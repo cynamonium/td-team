@@ -1,0 +1,16 @@
+<div class="row">
+  <form class="navbar-form navbar-left" role="search">
+    <div class="form-group">
+      <select ng-model="selectedBpi">
+        <option ng-repeat="(key, value) in dataTypes.bpi" value="{{key}}">{{value.label}}</option>
+      </select>
+       <select ng-model="selectedDimension" ng-if="!!selectedBpi">
+        <option ng-repeat="(key, value) in dataTypes.bpi[selectedBpi].dimensions" value="{{key}}">{{value.label}}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+  <canvas id="line-chart" width="730" height="400"></canvas>
+  <canvas id="bar-chart" width="730" height="400"></canvas>
+  <canvas id="pie-chart" width="730" height="400"></canvas>
+</div>
