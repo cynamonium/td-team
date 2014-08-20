@@ -25,16 +25,14 @@
       <div class="header">
         <ul class="nav nav-pills pull-right">
           <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
-          <li><a ng-href="#">Contact</a></li>
         </ul>
-        <h3 class="text-muted">tdTeam</h3>
+        <h3 class="text-muted">tdTeam - chart task</h3>
       </div>
 
       <div ng-view=""></div>
 
       <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
+        <p><span class="glyphicon glyphicon-signal"></span> Piotr Karbownik / The Software House</p>
       </div>
     </div>
 
@@ -57,17 +55,17 @@
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/chartjs/Chart.js"></script>
+    <script src="bower_components/chartjs/Chart.min.js"></script>
     <script src="bower_components/underscore/underscore.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="scripts/config/data/types.js"></script>
-    <script src="scripts/config/chart/line_base.js"></script>
-    <script src="scripts/config/chart/bar_base.js"></script>
-    <script src="scripts/config/chart/pie_base.js"></script>
+    <script src="scripts/config/config.js"></script>
     <script src="scripts/app.js"></script>
+    <script src="scripts/factories/data/types.js"></script>
+    <script src="scripts/factories/chart/types.js"></script>
+    <script src="scripts/services/api.js"></script>
     <script src="scripts/controllers/chart.js"></script>
 
     <!-- endbuild -->

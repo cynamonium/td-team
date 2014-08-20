@@ -1,16 +1,29 @@
 <div class="row">
   <form class="navbar-form navbar-left" role="search">
     <div class="form-group">
-      <select ng-model="selectedBpi">
+      <select  class="form-control" ng-model="statsParams.selectedBpi">
         <option ng-repeat="(key, value) in dataTypes.bpi" value="{{key}}">{{value.label}}</option>
       </select>
-       <select ng-model="selectedDimension" ng-if="!!selectedBpi">
-        <option ng-repeat="(key, value) in dataTypes.bpi[selectedBpi].dimensions" value="{{key}}">{{value.label}}</option>
+       <select  class="form-control" ng-model="statsParams.selectedDimension" ng-if="!!statsParams.selectedBpi">
+        <option ng-repeat="(key, value) in dataTypes.bpi[statsParams.selectedBpi].dimensions" value="{{key}}">{{value.label}}</option>
+      </select>
+      <select  class="form-control" ng-model="statsParams.selectedTimeline">
+        <option ng-repeat="(key, value) in dataTypes.timeline" value="{{key}}">{{value}}</option>
       </select>
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button ng-click="currentChart = 'line'" type="button" class="btn btn-default" ng-class="{active: currentChart === 'line'}">Line</button>
+    <button ng-click="currentChart = 'bar'" type="button" class="btn btn-default" ng-class="{active: currentChart === 'bar'}">Bar</button>
+    <button ng-click="currentChart = 'pie'" type="button" class="btn btn-default" ng-class="{active: currentChart === 'pie'}">Pie</button>
   </form>
-  <canvas id="line-chart" width="730" height="400"></canvas>
-  <canvas id="bar-chart" width="730" height="400"></canvas>
-  <canvas id="pie-chart" width="730" height="400"></canvas>
+
+  <canvas ng-show="currentChart === 'line'" id="line-chart" width="730" height="400"></canvas>
+  <canvas ng-show="currentChart === 'bar'" id="bar-chart" width="730" height="400"></canvas>
+  <canvas ng-show="currentChart === 'pie'" id="pie-chart" width="730" height="400"></canvas>
+</div>
+<div class="row">
+    <div class="progress" ng-show="loading">
+  <div class="progress-bar progress-bar-striped active"  role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+    <span class="sr-only"</span>
+  </div>
+  </div>
 </div>
